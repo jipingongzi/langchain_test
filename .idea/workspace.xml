@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/langchain_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deepseek_rag_demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="能启动但报错">
+      <change beforePath="$PROJECT_DIR$/deepseek_rag_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/deepseek_rag_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +106,19 @@
       <option name="presentableId" value="Default" />
       <updated>1754027472789</updated>
     </task>
+    <task id="LOCAL-00001" summary="能启动但报错">
+      <option name="closed" value="true" />
+      <created>1754271903057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754271903057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="能启动但报错" />
+    <option name="LAST_COMMIT_MESSAGE" value="能启动但报错" />
   </component>
 </project>
