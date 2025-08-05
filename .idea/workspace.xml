@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="能回答，但是知识库没有rag">
+    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="循环检索回答">
+      <change afterPath="$PROJECT_DIR$/deepseek_rag_demo_memory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deepseek_rag_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/deepseek_rag_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.deepseek_rag_demo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.deepseek_rag_demo.executor": "Run",
+    "Python.deepseek_rag_demo_memory.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Sean_Xiao/github-data/langchain_test",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
-  <component name="RunManager" selected="Python.deepseek_rag_demo">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sean_Xiao\github-data\langchain_test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.deepseek_rag_demo_memory">
     <configuration name="deepseek_rag_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="langchain_test" />
       <option name="ENV_FILES" value="" />
@@ -55,6 +61,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deepseek_rag_demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="deepseek_rag_demo_memory" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="langchain_test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deepseek_rag_demo_memory.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -87,6 +115,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.deepseek_rag_demo_memory" />
         <item itemvalue="Python.deepseek_rag_demo" />
       </list>
     </recent_temporary>
@@ -123,12 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1754272279688</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="循环检索回答">
+      <option name="closed" value="true" />
+      <created>1754275747779</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754275747779</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="能启动但报错" />
     <MESSAGE value="能回答，但是知识库没有rag" />
-    <option name="LAST_COMMIT_MESSAGE" value="能回答，但是知识库没有rag" />
+    <MESSAGE value="循环检索回答" />
+    <option name="LAST_COMMIT_MESSAGE" value="循环检索回答" />
   </component>
 </project>
