@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="循环检索回答">
-      <change afterPath="$PROJECT_DIR$/deepseek_rag_demo_memory.py" afterDir="false" />
+    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="循环检索回答带记忆">
+      <change afterPath="$PROJECT_DIR$/deepseek_rag_demo_memory_tool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +36,7 @@
   "keyToString": {
     "Python.deepseek_rag_demo.executor": "Run",
     "Python.deepseek_rag_demo_memory.executor": "Run",
+    "Python.deepseek_rag_demo_memory_tool.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/Sean_Xiao/github-data/langchain_test",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
@@ -46,7 +47,7 @@
       <recent name="C:\Users\Sean_Xiao\github-data\langchain_test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.deepseek_rag_demo_memory">
+  <component name="RunManager" selected="Python.deepseek_rag_demo_memory_tool">
     <configuration name="deepseek_rag_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="langchain_test" />
       <option name="ENV_FILES" value="" />
@@ -91,6 +92,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="deepseek_rag_demo_memory_tool" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="langchain_test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deepseek_rag_demo_memory_tool.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="langchain_test" />
       <option name="ENV_FILES" value="" />
@@ -115,6 +138,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.deepseek_rag_demo_memory_tool" />
         <item itemvalue="Python.deepseek_rag_demo_memory" />
         <item itemvalue="Python.deepseek_rag_demo" />
       </list>
@@ -160,13 +184,22 @@
       <option name="project" value="LOCAL" />
       <updated>1754275747779</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="循环检索回答带记忆">
+      <option name="closed" value="true" />
+      <created>1754364198186</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754364198186</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="能启动但报错" />
     <MESSAGE value="能回答，但是知识库没有rag" />
     <MESSAGE value="循环检索回答" />
-    <option name="LAST_COMMIT_MESSAGE" value="循环检索回答" />
+    <MESSAGE value="循环检索回答带记忆" />
+    <option name="LAST_COMMIT_MESSAGE" value="循环检索回答带记忆" />
   </component>
 </project>
