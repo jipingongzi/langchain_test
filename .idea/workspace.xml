@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="循环检索回答带记忆">
-      <change afterPath="$PROJECT_DIR$/deepseek_rag_demo_memory_tool.py" afterDir="false" />
+    <list default="true" id="501e8c8e-4cc8-4fdc-a9eb-c19724ea5cb4" name="Changes" comment="使用streamlit搭建UI但是还不能记住会话内容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,22 +31,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.deepseek_rag_demo.executor": "Run",
-    "Python.deepseek_rag_demo_memory.executor": "Run",
-    "Python.deepseek_rag_demo_memory_tool.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Sean_Xiao/github-data/langchain_test",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.deepseek_rag_demo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.deepseek_rag_demo_memory.executor&quot;: &quot;Run&quot;,
+    &quot;Python.deepseek_rag_demo_memory_tool.executor&quot;: &quot;Run&quot;,
+    &quot;Python.deepseek_rag_demo_memory_tool_streamlit.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sean_Xiao/github-data/langchain_test&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Sean_Xiao\github-data\langchain_test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.deepseek_rag_demo_memory_tool">
+  <component name="RunManager" selected="Python.deepseek_rag_demo_memory_tool_streamlit">
     <configuration name="deepseek_rag_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="langchain_test" />
       <option name="ENV_FILES" value="" />
@@ -114,6 +114,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="deepseek_rag_demo_memory_tool_streamlit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="langchain_test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deepseek_rag_demo_memory_tool_streamlit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="langchain_test" />
       <option name="ENV_FILES" value="" />
@@ -138,6 +160,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.deepseek_rag_demo_memory_tool_streamlit" />
         <item itemvalue="Python.deepseek_rag_demo_memory_tool" />
         <item itemvalue="Python.deepseek_rag_demo_memory" />
         <item itemvalue="Python.deepseek_rag_demo" />
@@ -192,7 +215,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754364198186</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="循环检索回答带记忆，自定义tool">
+      <option name="closed" value="true" />
+      <created>1754469480867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754469480867</updated>
+    </task>
+    <task id="LOCAL-00006" summary="使用streamlit搭建UI但是还不能记住会话内容">
+      <option name="closed" value="true" />
+      <created>1754555303842</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1754555303842</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,6 +239,8 @@
     <MESSAGE value="能回答，但是知识库没有rag" />
     <MESSAGE value="循环检索回答" />
     <MESSAGE value="循环检索回答带记忆" />
-    <option name="LAST_COMMIT_MESSAGE" value="循环检索回答带记忆" />
+    <MESSAGE value="循环检索回答带记忆，自定义tool" />
+    <MESSAGE value="使用streamlit搭建UI但是还不能记住会话内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用streamlit搭建UI但是还不能记住会话内容" />
   </component>
 </project>
