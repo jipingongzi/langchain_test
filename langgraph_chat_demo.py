@@ -34,9 +34,8 @@ graph_builder.add_edge("chatbot", END)
 graph = graph_builder.compile()
 
 def stream_graph_updates(user_input: str):
-    for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
-        for value in event.values():
-            print("Assistant:", value["messages"][-1].content)
+    for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}, stream_mode="messages"):
+        print(event)
 
 
 while True:
