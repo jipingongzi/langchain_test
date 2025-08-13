@@ -3,3 +3,4 @@ openai
 sentence-transformers
 streamlit
 streamlit-chat
+langgraph
