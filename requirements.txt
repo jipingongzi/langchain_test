@@ -4,3 +4,4 @@ sentence-transformers
 streamlit
 streamlit-chat
 langgraph
+psycopg2
