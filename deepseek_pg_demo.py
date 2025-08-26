@@ -10,58 +10,54 @@ db = SQLDatabase.from_uri(
                     "api_code_response", "merged_pr_info", "opened_pr_info"]
 )
 
-# 获取数据库表结构信息
 table_info = db.get_table_info()
 
-# 创建生成SQL的Prompt - 修复变量引用错误
 sql_prompt = PromptTemplate(
-    input_variables=["input", "table_info"],  # 明确声明两个输入变量
+    input_variables=["input", "table_info"],
     template="""
-        你是一个专业的SQL查询生成器，能根据用户问题和数据库表结构生成正确的PostgreSQL查询语句。
-        
-        ## 数据库表结构:
+        You are a professional SQL query generator, capable of producing correct PostgreSQL queries based on user questions and database table structures.
+
+        ## Database Table Structure:
         {table_info}
-        
-        主要表的作用如下：
+
+        The functions of key tables are as follows:
         consumption_api_desc         ： For API summary or overview  
         all_tickets_info_epmldataai  ： Serves as supplementary table for enriched API information (e.g., business context, logic, request/response examples) in linked Jira ticket 
         api_code_response            ： For code samples or implementation details                                            
         merged_pr_info               ： Contains information about merged pull requests related to a specific API             
         opened_pr_info               ： Stores information about currently opened (unmerged) pull requests for a specific API 
-        
-        ## 生成规则:
-        1. 仅生成可直接执行的SQL语句，不要有任何解释、说明文字或格式标记
-        2. 不要包含```sql、```或任何其他标记
-        3. 确保使用正确的表名和列名，基于提供的表结构
-        4. 只查询回答问题所必需的字段
-        5. 如果需要多表查询，请正确使用JOIN关联
-        
-        用户的问题: {input}
-        
-        生成的SQL语句:
+
+        ## Generation Rules:
+        1. Only generate SQL statements that can be executed directly; do not include any explanations, descriptive text, or format markers
+        2. Do not include ```sql, ```, or any other markers
+        3. Ensure correct table names and column names are used, based on the provided table structure
+        4. Only query fields necessary for answering the question
+        5. If multi-table query is required, use JOIN correctly for association
+
+        User's Question: {input}
+
+        Generated SQL Statement:
     """
 )
 
-# 创建解释查询结果的Prompt
 answer_prompt = PromptTemplate(
     input_variables=["history", "input"],
     template="""
-        你是一个数据分析师，需要结合历史对话上下文，根据SQL查询结果回答用户的问题。
-        
-        ## 历史对话（必须参考，理解上下文指代）:
+        You are a data analyst, and you need to answer the user's question based on SQL query results while referring to the historical conversation context.
+
+        ## Historical Conversation (Must be referenced to understand contextual references):
         {history}
-        
-        ## 当前查询信息（包含用户问题、执行的SQL、查询结果）:
+
+        ## Current Query Information (Including user question, executed SQL, query results):
         {input}
-        
-        ## 回答规则:
-        1. 如果用户的问题是追问（如“它的业务上下文是什么”），必须通过历史对话确定“它”指的是上一轮的API/内容。
-        2. 用简洁明了的语言回答，不要添加额外信息。
-        3. 提供三个可能的后续问题，帮助用户进一步了解相关信息。
+
+        ## Answer Rules:
+        1. If the user's question is a follow-up (e.g., "What is its business context?"), you must determine what "it" refers to (the API/content from the previous round) through the historical conversation.
+        2. Answer in concise and clear language; do not add extra information.
+        3. Provide three possible follow-up questions to help the user gain a deeper understanding of relevant information.
     """
 )
 
-# 初始化LLM
 llm = ChatOpenAI(
     api_key="sk-9b5776bd68e045f7ae2171077134b2a4",
     base_url="https://api.deepseek.com/v1",
@@ -69,16 +65,14 @@ llm = ChatOpenAI(
     temperature=0.1
 )
 
-# 创建带记忆的链
 memory = ConversationBufferMemory(
     memory_key="history",
-    input_key="input",  # 匹配answer_prompt的input变量
+    input_key="input",
     return_messages=False,
-    ai_prefix="助手",
-    human_prefix="用户"
+    ai_prefix="Assistant",
+    human_prefix="User"
 )
 
-# 创建链
 sql_chain = LLMChain(llm=llm, prompt=sql_prompt)
 answer_chain = LLMChain(
     llm=llm,
@@ -87,8 +81,8 @@ answer_chain = LLMChain(
     verbose=False
 )
 
+
 def clean_sql_query(sql):
-    """清理SQL查询中的Markdown格式标记"""
     if sql.startswith('```sql'):
         sql = sql[len('```sql'):]
     if sql.startswith('```'):
@@ -100,29 +94,25 @@ def clean_sql_query(sql):
 
 def ask_database(question: str):
     try:
-        # 生成SQL查询 - 正确传递两个输入变量
         sql_response = sql_chain.invoke(
             input={
-                "input": question,  # 用户问题
-                "table_info": table_info  # 表结构信息
+                "input": question,
+                "table_info": table_info
             }
         )
         raw_sql = sql_response["text"].strip()
         sql_query = clean_sql_query(raw_sql)
-        print(f"生成的SQL查询: {sql_query}")
+        print(f"Generated SQL Query: {sql_query}")
 
-        # 执行SQL查询
         query_result = db.run(sql_query)
-        print(f"查询结果: {query_result}")
+        print(f"Query Result: {query_result}")
 
-        # 拼接信息为单输入变量
         combined_input = f"""
-            用户的问题: {question}
-            执行的SQL查询: {sql_query}
-            查询结果: {query_result}
+            User's Question: {question}
+            Executed SQL Query: {sql_query}
+            Query Result: {query_result}
         """
 
-        # 生成自然语言回答
         answer_response = answer_chain.invoke(
             input={"input": combined_input}
         )
@@ -131,16 +121,16 @@ def ask_database(question: str):
         return answer
 
     except Exception as e:
-        return f"执行查询时发生错误: {str(e)}\n请检查问题描述或数据库连接。"
+        return f"An error occurred while executing the query: {str(e)}\nPlease check the question description or database connection."
 
 
 if __name__ == "__main__":
-    print("欢迎使用API知识库查询工具（输入 'exit' 退出）！")
-    print("示例流程：\n1. 先问'API_X是什么？'\n2. 再追问'它的业务上下文是什么'")
+    print("Welcome to the API Knowledge Base Query Tool (enter 'exit' to quit)!")
+    print("Example Workflow:\n1. First ask 'What is API_X?'\n2. Then follow up with 'What is its business context?'")
     while True:
-        user_question = input("\n请输入你的问题：")
+        user_question = input("\nPlease enter your question:")
         if user_question.lower() == "exit":
-            print("已退出程序。")
+            print("Program exited.")
             break
         response = ask_database(user_question)
         print("\n" + "-" * 50)
