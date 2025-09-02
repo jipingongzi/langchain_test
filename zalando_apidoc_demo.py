@@ -180,7 +180,7 @@ def store_apis_in_chromadb(collection: chromadb.Collection, api_list: List[Dict[
         print(f"错误：存储API到ChromaDB失败 {str(e)}")
         return False
 
-def search_apis(collection: chromadb.Collection, query: str, n_results: int = 3) -> List[Dict[str, Any]]:
+def search_apis(query: str, n_results: int = 3) -> List[Dict[str, Any]]:
     """搜索相关API，返回完整信息"""
     try:
         results = collection.query(
@@ -210,6 +210,8 @@ def format_api_response(apis: List[Dict[str, Any]]) -> str:
 
     response = []
     for idx, api in enumerate(apis, 1):
+        if api['similarity_score'] < -10:
+            continue
         # 基础信息
         base_info = [
             f"【API {idx}】",
@@ -252,10 +254,12 @@ def format_api_response(apis: List[Dict[str, Any]]) -> str:
 
     return "\n".join(response)
 
-def initialize_system(yaml_path: str, collection: chromadb.Collection) -> bool:
-    """初始化系统：解析OpenAPI → 提取信息 → 存储到ChromaDB"""
+def initialize_system(yaml_path: str) -> bool:
     print("\n" + "=" * 60)
     print("开始初始化API知识库...")
+    # all_ids = collection.get()["ids"]
+    # if all_ids:
+    #     return True
 
     openapi_data = load_and_parse_openapi(yaml_path)
     if not openapi_data:
@@ -291,11 +295,11 @@ def main():
 
     # 1. 输入YAML路径并初始化
     while True:
-        yaml_path = input("请输入OpenAPI规范YAML文件的路径（如./openapi.yaml）：").strip()
+        yaml_path = "api.yaml"
         if yaml_path.lower() in ["exit", "quit"]:
             print("程序退出")
             return
-        if initialize_system(yaml_path, collection):
+        if initialize_system(yaml_path):
             break
         print("请重新输入正确的YAML文件路径\n")
 
