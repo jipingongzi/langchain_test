@@ -9,10 +9,6 @@ from zalando_apidoc_demo import search_apis, format_api_response, initialize_sys
 # 导入你的功能模块
 from zalando_pg_demo import ask_database
 
-
-# --------------------------
-# 关键：启动时执行API文档初始化
-# --------------------------
 def initialize_api_collection():
     try:
         api_collection = init_api_docs("api.yaml", )
@@ -109,11 +105,6 @@ def generate_response(state: State) -> State:
     question = state["question"]
     db_result = state.get("database_result", "未查询数据库")
     api_result = state.get("api_result", "未查询API文档")
-
-    print("-----------------------------")
-    print(db_result)
-    print(api_result)
-    print("-----------------------------")
 
     if is_valid_result(db_result):
         response = f"✅ 关于「{question}」的查询结果（来自数据库）：\n\n{db_result}"

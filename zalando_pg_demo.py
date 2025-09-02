@@ -102,10 +102,8 @@ def ask_database(question: str):
         )
         raw_sql = sql_response["text"].strip()
         sql_query = clean_sql_query(raw_sql)
-        print(f"Generated SQL Query: {sql_query}")
 
         query_result = db.run(sql_query)
-        print(f"Query Result: {query_result}")
 
         combined_input = f"""
             User's Question: {question}
@@ -126,7 +124,6 @@ def ask_database(question: str):
 
 if __name__ == "__main__":
     print("Welcome to the API Knowledge Base Query Tool (enter 'exit' to quit)!")
-    print("Example Workflow:\n1. First ask 'What is API_X?'\n2. Then follow up with 'What is its business context?'")
     while True:
         user_question = input("\nPlease enter your question:")
         if user_question.lower() == "exit":

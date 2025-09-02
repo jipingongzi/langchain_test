@@ -227,13 +227,11 @@ def format_api_response(apis: List[Dict[str, Any]]) -> str:
         params = api["parameters"]
         if params:
             base_info.append("\n【参数列表】")
-            for p in params[:3]:
+            for p in params:
                 param_name = p.get("name", "未知参数")
                 param_in = p.get("in", "未知位置")
                 param_desc = p.get("description", "无描述")
                 base_info.append(f"- {param_in}参数：{param_name} | {param_desc}")
-            if len(params) > 3:
-                base_info.append(f"- ... 共 {len(params)} 个参数（已显示前3个）")
 
         responses = api["responses"]
         if responses:
