@@ -1,13 +1,11 @@
 import traceback
 from typing import Annotated, Optional, TypedDict
-
 from langchain_core.messages import HumanMessage, AIMessage
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
-
 from zalando_apidoc_demo import search_apis, format_api_response, initialize_system as init_api_docs
-# 导入你的功能模块
 from zalando_pg_demo import ask_database
+
 
 def initialize_api_collection():
     try:
@@ -19,7 +17,6 @@ def initialize_api_collection():
         else:
             print("❌ API文档初始化完成，但未返回有效的集合对象")
             return None
-
     except ImportError:
         error_msg = "未找到zalando_apidoc_demo中的main函数，请检查函数名称是否正确"
         print(f"❌ {error_msg}")
@@ -43,7 +40,6 @@ class State(TypedDict):
     next_step: Optional[str] = None
 
 
-# 判断结果是否有效
 def is_valid_result(result: Optional[str]) -> bool:
     if result is None or result.strip() == "":
         return False
@@ -51,11 +47,9 @@ def is_valid_result(result: Optional[str]) -> bool:
     return not any(phrase in result.lower() for phrase in no_result_phrases)
 
 
-# 1. 查询数据库节点
 def query_database(state: State) -> State:
     question = state["question"]
     print(f"🔍 正在数据库中查询: {question}")
-
     try:
         db_result = ask_database(question)
         if not db_result or db_result.strip() == "":
