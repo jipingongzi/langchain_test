@@ -6,3 +6,13 @@ streamlit-chat
 langgraph
 psycopg2
 chromadb
+
+langchain_google_community
+langchain-google-community[drive]
+langchain-chroma
+unstructured[pdf]
+pytesseract
+pillow
+easyocr
+transformers
+torch
