@@ -16,3 +16,7 @@ pillow
 easyocr
 transformers
 torch
+poppler-utils
+pdf2image
+PyPDF2
+langchain-unstructured
